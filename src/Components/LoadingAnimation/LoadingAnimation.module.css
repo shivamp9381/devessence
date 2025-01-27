@@ -1,0 +1,145 @@
+.loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #111827;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  .fadeOut {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .logoContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hexagonOuter, .hexagonInner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  
+  .hexagonOuter {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+    animation: rotateHex 2s infinite linear, pulseHex 2s infinite ease-in-out;
+  }
+  
+  .hexagonInner {
+    background-color: #111827;
+    transform: scale(0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 80%;
+    height: auto;
+    animation: pulseLogo 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.5));
+  }
+  
+  .loadingText {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+  }
+  
+  .loadingText span {
+    color: #fbbf24;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: jumpText 1.5s infinite ease-in-out;
+    display: inline-block;
+  }
+  
+  .loadingText span:nth-child(1) { animation-delay: 0.1s; }
+  .loadingText span:nth-child(2) { animation-delay: 0.2s; }
+  .loadingText span:nth-child(3) { animation-delay: 0.3s; }
+  .loadingText span:nth-child(4) { animation-delay: 0.4s; }
+  .loadingText span:nth-child(5) { animation-delay: 0.5s; }
+  .loadingText span:nth-child(6) { animation-delay: 0.6s; }
+  .loadingText span:nth-child(7) { animation-delay: 0.7s; }
+  .loadingText span:nth-child(8) { animation-delay: 0.8s; }
+  .loadingText span:nth-child(9) { animation-delay: 0.9s; }
+  .loadingText span:nth-child(10) { animation-delay: 1s; }
+  
+  .mainContent {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .mainContent.visible {
+    opacity: 1;
+  }
+  
+  @keyframes rotateHex {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulseHex {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes pulseLogo {
+    0%, 100% {
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: scale(0.95);
+      filter: brightness(1.2);
+    }
+  }
+  
+  @keyframes jumpText {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .logoContainer {
+      width: 300px;
+      height: 300px;
+    }
+  
+    .loadingText {
+      bottom: -60px;
+    }
+  
+    .loadingText span {
+      font-size: 1.5rem;
+    }
+  } 
+
