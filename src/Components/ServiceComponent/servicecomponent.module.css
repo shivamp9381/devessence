@@ -1,0 +1,77 @@
+/* Root Section */
+.servicesSection {
+    background-color: #000; /* Matches your logo's dark theme */
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffc107; /* Gold color to match your logo */
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 40px;
+  }
+  
+  /* Grid Layout */
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: stretch;
+  }
+  
+  /* Service Card */
+  .serviceCard {
+    background: linear-gradient(145deg, #222, #111);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .serviceCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    color: #ffc107; /* Gold */
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #bbb;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sectionTitle {
+      font-size: 2rem;
+    }
+  
+    .servicesGrid {
+      gap: 15px;
+    }
+  
+    .serviceCard {
+      padding: 15px;
+    }
+  }
+  
