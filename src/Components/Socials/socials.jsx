@@ -15,10 +15,10 @@ const SocialIcons = () => {
     <div className={styles.iconContainer}>
       <div className={styles.socialIcons}>
         <button className={styles.whatsappIcon} onClick={handleWhatsappClick}>
-          <FaWhatsapp size={24} />
+          <FaWhatsapp size={28} />
         </button>
         <button className={styles.phoneIcon} onClick={handlePhoneClick}>
-          <FaPhone size={24} />
+          <FaPhone size={28} />
         </button>
       </div>
     </div>
