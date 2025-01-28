@@ -4,7 +4,7 @@ import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 
 const SocialIcons = () => {
   const handleWhatsappClick = () => {
-    window.open('https://wa.me/9305226581', '_blank');
+    window.open('https://wa.me/+919305226581', '_blank');
   };
 
   const handlePhoneClick = () => {
