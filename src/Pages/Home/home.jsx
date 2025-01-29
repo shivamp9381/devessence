@@ -14,7 +14,6 @@ import SocialIcons from '../../Components/Socials/socials'
 const Home = () => {
   return (
     <div>
-      <LoadingAnimation />      
       <Navbar />
       <HeroBanner />
       <PhilosophySection />
