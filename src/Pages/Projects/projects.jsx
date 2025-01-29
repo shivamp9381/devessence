@@ -3,7 +3,7 @@ import styles from "./blogs.module.css";
 import Navbar from "../../Components/Navbar/navbar";
 import Footer from "../../Components/Footer/footer";
 
-const Blog = ({ videoSrc }) => {
+const Projects = ({ videoSrc }) => {
   return (
     <div>
       <Navbar />
@@ -24,4 +24,4 @@ const Blog = ({ videoSrc }) => {
   );
 };
 
-export default Blog;
+export default Projects;
