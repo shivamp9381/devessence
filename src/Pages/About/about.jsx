@@ -81,6 +81,7 @@ import styles from './about.module.css';
 import Footer from '../../Components/Footer/footer';
 import Navbar from '../../Components/Navbar/navbar';
 import AboutLoadingAnimation from '../../Components/AboutLoadingAnimations/AboutLoadingAnimation';
+import SocialIcons from '../../Components/Socials/socials';
 
 function App() {
   const teamMembers = [
@@ -199,6 +200,7 @@ function App() {
         </div>
       </section>
     </div>
+    <SocialIcons />
     <Footer />
     </div>
   );
