@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./blogs.module.css";
+import styles from "./projects.module.css";
 import Navbar from "../../Components/Navbar/navbar";
 import Footer from "../../Components/Footer/footer";
 
