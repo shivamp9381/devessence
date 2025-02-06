@@ -20,7 +20,7 @@ const Home = () => {
       <ServiceComponent />
       <Vision />
       <OurProcess />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FAQs />
       <SocialIcons />
       <Footer />
