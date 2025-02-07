@@ -1,14 +1,37 @@
-import React from 'react';
-import { Globe2, Mail, Phone } from 'lucide-react';
-import Footer from '../../Components/Footer/footer';
-import Navbar from '../../Components/Navbar/navbar';
-import styles from './contact.module.css';
-import SocialIcons from '../../Components/Socials/socials';
+import React from "react";
+import { Globe2, Mail } from "lucide-react"; // Removed unused Phone import
+import Footer from "../../Components/Footer/footer";
+import Navbar from "../../Components/Navbar/navbar";
+import styles from "./contact.module.css";
+import SocialIcons from "../../Components/Socials/socials";
 
 function Contact() {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logic to handle form submission (e.g., sending data to an API or email)
+
+    const formData = {
+      name: e.target[0].value,
+      email: e.target[1].value,
+      message: e.target[2].value,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5001/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -39,27 +62,33 @@ function Contact() {
         <section className={styles.mapSection}>
           <h2>Find Us Here</h2>
           <iframe
-  src="https://maps.google.com/maps?q=Kalinga+Institute+of+Industrial+Technology&output=embed"
-  className={styles.mapEmbed}
-  allowFullScreen=""
-  loading="lazy"
-></iframe>
+            src="https://maps.google.com/maps?q=Kalinga+Institute+of+Industrial+Technology&output=embed"
+            className={styles.mapEmbed}
+            allowFullScreen=""
+            loading="lazy"
+            title="Google Map showing location of Kalinga Institute of Industrial Technology"
+          ></iframe>
         </section>
+
         {/* Address Section */}
         <section className={styles.addressSection}>
-            <div className={styles.addressContainer}>
-              <h2 className={styles.addressTitle}>Our Address</h2>
-              <p className={styles.addressText}>
-                Kalinga Institute Of Industrial Technology, Patia, Bhubaneswar, Odisha, India <br />
-                Pincode - 751024
-              </p>
-            </div>
-          </section>
+          <div className={styles.addressContainer}>
+            <h2 className={styles.addressTitle}>Our Address</h2>
+            <p className={styles.addressText}>
+              Kalinga Institute Of Industrial Technology, Patia, Bhubaneswar,
+              Odisha, India <br />
+              Pincode - 751024
+            </p>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.ctaContent}>
             <h2 className={styles.ctaTitle}>Ready to Start Your Project?</h2>
-            <p className={styles.ctaText}>Get in touch with us to begin your digital transformation journey!</p>
+            <p className={styles.ctaText}>
+              Get in touch with us to begin your digital transformation journey!
+            </p>
             <button className={styles.ctaButton}>
               Get in Touch
               <Mail className={styles.buttonIcon} />
