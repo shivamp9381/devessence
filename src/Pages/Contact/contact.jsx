@@ -16,22 +16,29 @@ function Contact() {
     };
 
     try {
-      const response = await fetch("https://devessence-backend-production.up.railway.app/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
+      const response = await fetch(
+        "https://devessence-backend-production.up.railway.app/send-email",
+        {
+          method: "POST",
+          mode: "cors", // ✅ Explicitly enable CORS
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
       if (data.success) {
         alert("Message sent successfully!");
-
       } else {
         alert("Failed to send message.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      if (error.message.includes("Failed to fetch")) {
+        alert("Server is down or unreachable. Please try again later.");
+      } else {
+        alert("An error occurred. Please try again.");
+      }
     }
   };
 
